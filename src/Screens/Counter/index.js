@@ -26,7 +26,7 @@ const Counter = () => {
     return (
         <SafeAreaView>
             <StatusBar barStyle='light-content' />
-            <ScrollView
+            {/* <ScrollView
                 contentInsetAdjustmentBehavior="automatic"
             >
                 <View style={styles.outerContainer}>
@@ -46,8 +46,69 @@ const Counter = () => {
                             <Text style={styles.buttonText}>-</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
-            </ScrollView>
+                </View> 
+            </ScrollView> */}
+
+            <View style={styles.inputContainer}>
+          <TextInput
+            placeholderTextColor={'grey'}
+            placeholder="Email"
+            value={email}
+            onChangeText={text => setEmail(text)}
+            style={styles.input}
+          />
+
+          <TextInput
+            placeholderTextColor={'grey'}
+            placeholder="Password"
+            value={password}
+            onChangeText={text => setPassword(text)}
+            style={styles.input}
+            secureTextEntry
+          />
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            onPress={() => {
+              Validation()
+            }}
+            style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => onGoogleButtonPress()}
+          >
+            <Text style={{ color: 'grey' }}>Login with Google</Text>
+          </TouchableOpacity>
+
+          <Text
+            style={{
+              fontSize: 14,
+              color: '#595958',
+              padding: 6,
+
+              justifyContent: 'center',
+              textAlign: 'center',
+              fontWeight: '400',
+            }}>
+            Are you new?
+          </Text>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+            <Text
+              style={{
+                fontSize: 16,
+                color: '#0c54a3',
+                fontWeight: '500',
+                justifyContent: 'center',
+                textAlign: 'center',
+              }}>
+              Create account
+            </Text>
+          </TouchableOpacity>
+          </View>
         </SafeAreaView>
     )
 }
